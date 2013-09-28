@@ -1,7 +1,7 @@
 Summary:	LibGTop library
 Name:		libgtop
 Version:	2.28.4
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,en@shaw,es_ES,la,ps}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,en@shaw,la}
 
 %find_lang %{name} --all-name
 
@@ -96,7 +96,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so
-%{_libdir}/libgtop-2.0.la
 %{_includedir}/libgtop-2.0
 %{_datadir}/gir-1.0/GTop-2.0.gir
 %{_infodir}/*info*
